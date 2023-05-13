@@ -1,0 +1,243 @@
+{
+  "id": "/subscriptions/ab115416-0491-4f87-bbed-5c7e913a4b66/resourceGroups/LBORG/providers/Microsoft.Resources/deployments/CreateVm-MicrosoftWindowsServer.WindowsServer-201-20230512082757",
+  "name": "CreateVm-MicrosoftWindowsServer.WindowsServer-201-20230512082757",
+  "type": "Microsoft.Resources/deployments",
+  "tags": {
+    "primaryResourceId": "/subscriptions/ab115416-0491-4f87-bbed-5c7e913a4b66/resourcegroups/LBORG/providers/Microsoft.Compute/virtualMachines/TestVM",
+    "marketplaceItemId": "Microsoft.WindowsServer2019Datacenter2019-datacenter-gensecond",
+    "provisioningHash": "SolutionProvider"
+  },
+  "properties": {
+    "templateHash": "13372363263727692924",
+    "parameters": {
+      "location": {
+        "type": "String",
+        "value": "westcentralus"
+      },
+      "networkInterfaceName": {
+        "type": "String",
+        "value": "testvm461"
+      },
+      "enableAcceleratedNetworking": {
+        "type": "Bool",
+        "value": true
+      },
+      "networkSecurityGroupName": {
+        "type": "String",
+        "value": "TestVM-nsg"
+      },
+      "networkSecurityGroupRules": {
+        "type": "Array",
+        "value": [
+          {
+            "name": "RDP",
+            "properties": {
+              "priority": 300,
+              "protocol": "TCP",
+              "access": "Allow",
+              "direction": "Inbound",
+              "sourceAddressPrefix": "*",
+              "sourcePortRange": "*",
+              "destinationAddressPrefix": "*",
+              "destinationPortRange": "3389"
+            }
+          }
+        ]
+      },
+      "subnetName": {
+        "type": "String",
+        "value": "default"
+      },
+      "virtualNetworkName": {
+        "type": "String",
+        "value": "TestVM-vnet"
+      },
+      "addressPrefixes": {
+        "type": "Array",
+        "value": [
+          "10.0.0.0/16"
+        ]
+      },
+      "subnets": {
+        "type": "Array",
+        "value": [
+          {
+            "name": "default",
+            "properties": {
+              "addressPrefix": "10.0.0.0/24"
+            }
+          }
+        ]
+      },
+      "publicIpAddressName": {
+        "type": "String",
+        "value": "TestVM-ip"
+      },
+      "publicIpAddressType": {
+        "type": "String",
+        "value": "Static"
+      },
+      "publicIpAddressSku": {
+        "type": "String",
+        "value": "Standard"
+      },
+      "pipDeleteOption": {
+        "type": "String",
+        "value": "Delete"
+      },
+      "virtualMachineName": {
+        "type": "String",
+        "value": "TestVM"
+      },
+      "virtualMachineComputerName": {
+        "type": "String",
+        "value": "TestVM"
+      },
+      "virtualMachineRG": {
+        "type": "String",
+        "value": "LBORG"
+      },
+      "osDiskType": {
+        "type": "String",
+        "value": "Standard_LRS"
+      },
+      "osDiskDeleteOption": {
+        "type": "String",
+        "value": "Delete"
+      },
+      "virtualMachineSize": {
+        "type": "String",
+        "value": "Standard_DS1_v2"
+      },
+      "nicDeleteOption": {
+        "type": "String",
+        "value": "Delete"
+      },
+      "adminUsername": {
+        "type": "String",
+        "value": "Lanre"
+      },
+      "adminPassword": {
+        "type": "SecureString"
+      },
+      "patchMode": {
+        "type": "String",
+        "value": "AutomaticByOS"
+      },
+      "enableHotpatching": {
+        "type": "Bool",
+        "value": false
+      }
+    },
+    "mode": "Incremental",
+    "debugSetting": {
+      "detailLevel": "None"
+    },
+    "provisioningState": "Succeeded",
+    "timestamp": "2023-05-12T13:53:15.433953Z",
+    "duration": "PT1M31.4276158S",
+    "correlationId": "2e35e86a-6861-4b6d-9b72-4e98707a2061",
+    "providers": [
+      {
+        "namespace": "Microsoft.Network",
+        "resourceTypes": [
+          {
+            "resourceType": "networkInterfaces",
+            "locations": [
+              "westcentralus"
+            ]
+          },
+          {
+            "resourceType": "networkSecurityGroups",
+            "locations": [
+              "westcentralus"
+            ]
+          },
+          {
+            "resourceType": "virtualNetworks",
+            "locations": [
+              "westcentralus"
+            ]
+          },
+          {
+            "resourceType": "publicIpAddresses",
+            "locations": [
+              "westcentralus"
+            ]
+          }
+        ]
+      },
+      {
+        "namespace": "Microsoft.Compute",
+        "resourceTypes": [
+          {
+            "resourceType": "virtualMachines",
+            "locations": [
+              "westcentralus"
+            ]
+          }
+        ]
+      }
+    ],
+    "dependencies": [
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/ab115416-0491-4f87-bbed-5c7e913a4b66/resourceGroups/LBORG/providers/Microsoft.Network/networkSecurityGroups/TestVM-nsg",
+            "resourceType": "Microsoft.Network/networkSecurityGroups",
+            "resourceName": "TestVM-nsg"
+          },
+          {
+            "id": "/subscriptions/ab115416-0491-4f87-bbed-5c7e913a4b66/resourceGroups/LBORG/providers/Microsoft.Network/virtualNetworks/TestVM-vnet",
+            "resourceType": "Microsoft.Network/virtualNetworks",
+            "resourceName": "TestVM-vnet"
+          },
+          {
+            "id": "/subscriptions/ab115416-0491-4f87-bbed-5c7e913a4b66/resourceGroups/LBORG/providers/Microsoft.Network/publicIpAddresses/TestVM-ip",
+            "resourceType": "Microsoft.Network/publicIpAddresses",
+            "resourceName": "TestVM-ip"
+          }
+        ],
+        "id": "/subscriptions/ab115416-0491-4f87-bbed-5c7e913a4b66/resourceGroups/LBORG/providers/Microsoft.Network/networkInterfaces/testvm461",
+        "resourceType": "Microsoft.Network/networkInterfaces",
+        "resourceName": "testvm461"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/ab115416-0491-4f87-bbed-5c7e913a4b66/resourceGroups/LBORG/providers/Microsoft.Network/networkInterfaces/testvm461",
+            "resourceType": "Microsoft.Network/networkInterfaces",
+            "resourceName": "testvm461"
+          }
+        ],
+        "id": "/subscriptions/ab115416-0491-4f87-bbed-5c7e913a4b66/resourceGroups/LBORG/providers/Microsoft.Compute/virtualMachines/TestVM",
+        "resourceType": "Microsoft.Compute/virtualMachines",
+        "resourceName": "TestVM"
+      }
+    ],
+    "outputs": {
+      "adminUsername": {
+        "type": "String",
+        "value": "Lanre"
+      }
+    },
+    "outputResources": [
+      {
+        "id": "/subscriptions/ab115416-0491-4f87-bbed-5c7e913a4b66/resourceGroups/LBORG/providers/Microsoft.Compute/virtualMachines/TestVM"
+      },
+      {
+        "id": "/subscriptions/ab115416-0491-4f87-bbed-5c7e913a4b66/resourceGroups/LBORG/providers/Microsoft.Network/networkInterfaces/testvm461"
+      },
+      {
+        "id": "/subscriptions/ab115416-0491-4f87-bbed-5c7e913a4b66/resourceGroups/LBORG/providers/Microsoft.Network/networkSecurityGroups/TestVM-nsg"
+      },
+      {
+        "id": "/subscriptions/ab115416-0491-4f87-bbed-5c7e913a4b66/resourceGroups/LBORG/providers/Microsoft.Network/publicIpAddresses/TestVM-ip"
+      },
+      {
+        "id": "/subscriptions/ab115416-0491-4f87-bbed-5c7e913a4b66/resourceGroups/LBORG/providers/Microsoft.Network/virtualNetworks/TestVM-vnet"
+      }
+    ],
+    "validationLevel": "Template"
+  }
+}
